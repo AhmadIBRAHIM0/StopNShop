@@ -11,18 +11,17 @@ const ProductsNavigator = (): React.JSX.Element => {
         <Stack.Navigator
             screenOptions={{
                 headerStyle: {
-                    backgroundColor: Platform.OS === 'android' ? Colors.black : 'black',
+                    backgroundColor: Platform.OS === 'android' ? Colors.primary : '',
                 },
                 headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primary,
-                headerTitleStyle: {
-                    fontWeight: 'bold',
-                },
             }}
         >
             <Stack.Screen
                 name="ProductsOverview"
                 component={ProductOverviewScreen}
-                options={{title: 'Products Overview'}}
+                options={{
+                    title: 'Products Overview'
+            }}
             />
         </Stack.Navigator>
     );

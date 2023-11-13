@@ -6,6 +6,7 @@ import {productsReducer} from './src/hooks/useProductsReducer';
 import ProductOverviewScreen from "./src/screens/shop/ProductOverviewScreen";
 import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
+import ProductsNavigator from "./src/navigation/ShopNavigator";
 
 const rootReducer = combineReducers({
     products: productsReducer,
@@ -23,7 +24,7 @@ function App(): React.JSX.Element {
         <NavigationContainer>
             <Provider store={store}>
                 <ProductsProvider>
-                    <ProductOverviewScreen/>
+                    <ProductsNavigator/>
                 </ProductsProvider>
             </Provider>
         </NavigationContainer>
