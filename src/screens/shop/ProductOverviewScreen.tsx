@@ -10,6 +10,7 @@ type Props = {
 const ProductOverviewScreen = (props: Props) => {
 
     const products: Product[] = useSelector((state: RootState) => state.products.availableProducts);
+
     return (
         <FlatList
             data={products}
