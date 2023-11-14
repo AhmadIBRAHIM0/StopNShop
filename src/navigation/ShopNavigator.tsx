@@ -15,6 +15,12 @@ const ProductsNavigator = (): React.JSX.Element => {
                     backgroundColor: Platform.OS === 'android' ? Colors.primary : '',
                 },
                 headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primary,
+                headerTitleStyle: {
+                    fontFamily: 'OpenSans-Bold',
+                },
+                headerBackTitleStyle: {
+                    fontFamily: 'OpenSans-Regular',
+                },
             }}
         >
             <Stack.Screen
