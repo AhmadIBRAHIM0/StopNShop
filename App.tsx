@@ -6,7 +6,7 @@ import {productsReducer} from './src/hooks/useProductsReducer';
 import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
 import ProductsNavigator from "./src/navigation/ShopNavigator";
-import {cartReducer} from "./src/hooks/userCartReducer";
+import cartReducer from "./src/hooks/useCartReducer";
 
 const rootReducer = combineReducers({
     products: productsReducer,
@@ -17,6 +17,10 @@ export type RootState = ReturnType<typeof rootReducer>;
 
 const store = configureStore({
     reducer: rootReducer,
+    middleware: getDefaultMiddleware =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }),
 });
 
 function App(): React.JSX.Element {

@@ -6,7 +6,6 @@ import {Platform} from "react-native";
 import React from "react";
 import {HeaderButtons, Item} from "react-navigation-header-buttons";
 import HeaderButton from "../components/UI/HeaderButton";
-import Icon from "react-native-vector-icons/FontAwesome";
 import CartScreen from "../screens/shop/CartScreen";
 
 const Stack = createStackNavigator();

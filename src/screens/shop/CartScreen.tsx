@@ -1,9 +1,9 @@
 import {Button, FlatList, StyleSheet, Text, View} from "react-native";
 import {useSelector} from "react-redux";
-import {CartState} from "../../providers/CartProvider";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import CartItem from "../../components/shop/CartItem";
 import {useMemo} from "react";
+import {RootState} from "../../../App";
 
 type CartItemType = {
     productId: string;
@@ -13,18 +13,19 @@ type CartItemType = {
     sum: number;
 }
 const CartScreen = (props: any) => {
-    const cartState = useSelector((state: CartState) => state.items);
-    const cartTotalAmount = useSelector((state: CartState) => state.totalAmount);
+    const cartState = useSelector((state: RootState) => state.cart.items);
+    console.log("CARTEEE STATEEE", cartState);
+    const cartTotalAmount = useSelector((state: RootState) => state.cart.totalAmount);
 
     const cartItems = useMemo(() => {
         const transformedCartItems: CartItemType[] = [];
         for (const key in cartState) {
             transformedCartItems.push({
                 productId: key,
-                productTitle: cartState.items[key].title,
-                productPrice: cartState.items[key].price,
-                quantity: cartState.items[key].quantity,
-                sum: cartState.items[key].sum,
+                productTitle: cartState[key].title,
+                productPrice: cartState[key].price,
+                quantity: cartState[key].quantity,
+                sum: cartState[key].sum,
             });
         }
 

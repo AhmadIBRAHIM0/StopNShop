@@ -1,4 +1,4 @@
-import {Button, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 type Props = {
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
         fontFamily: 'OpenSans-Regular',
         color: '#888',
         fontSize: 16,
+        marginRight: 10,
     },
     title: {
         fontFamily: 'OpenSans-Bold',

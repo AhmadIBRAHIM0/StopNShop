@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../App";
 import Product from "../../ models/product";
 import ProductItem from "../../components/shop/ProductItem";
-import {addToCart} from "../../providers/CartProvider";
+import {addToCart} from "../../hooks/useCartReducer";
 
 type Props = {
     navigation: any;

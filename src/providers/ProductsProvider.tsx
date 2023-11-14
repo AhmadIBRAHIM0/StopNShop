@@ -4,7 +4,7 @@ import {initialProductState, productsReducer} from "../hooks/useProductsReducer"
 
 
 export interface ChildrenProps {
-    children: ReactNode;
+    children?: ReactNode;
 }
 
 const ProductsProvider: React.FC<ChildrenProps> = ({children}: ChildrenProps) => {
