@@ -4,6 +4,10 @@ import ProductDetailScreen from "../screens/shop/ProductDetailScreen";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import {Platform} from "react-native";
 import React from "react";
+import {HeaderButtons, Item} from "react-navigation-header-buttons";
+import HeaderButton from "../components/UI/HeaderButton";
+import Icon from "react-native-vector-icons/FontAwesome";
+import CartScreen from "../screens/shop/CartScreen";
 
 const Stack = createStackNavigator();
 
@@ -26,9 +30,20 @@ const ProductsNavigator = (): React.JSX.Element => {
             <Stack.Screen
                 name="ProductsOverview"
                 component={ProductOverviewScreen}
-                options={{
-                    title: 'All Products'
-                }}
+                options={
+                    (navData: any) => ({
+                        title: 'All Products',
+                        headerRight: () => (
+                            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                                <Item
+                                    title="Cart"
+                                    iconName="shopping-cart"
+                                    onPress={() => navData.navigation.navigate('Cart')}
+                                />
+                            </HeaderButtons>
+                        ),
+                    })
+                }
             />
             <Stack.Screen
                 name="ProductDetail"
@@ -38,6 +53,13 @@ const ProductsNavigator = (): React.JSX.Element => {
                         title: navData.route.params.productTitle,
                     })
                 }
+            />
+            <Stack.Screen
+                name="Cart"
+                component={CartScreen}
+                options={{
+                    title: 'Cart',
+                }}
             />
         </Stack.Navigator>
     );

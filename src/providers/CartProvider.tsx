@@ -13,7 +13,11 @@ export type CartAction =
     | { type: 'ADD_TO_CART' , product: Product}
     | { type: 'REMOVE_FROM_CART' } & Partial<Product>
 
-const CartContext = React.createContext<{
+export const addToCart = (product: Product): CartAction => {
+    return {type: 'ADD_TO_CART', product};
+}
+
+export const CartContext = React.createContext<{
     state: CartState;
     dispatch: React.Dispatch<CartAction>;
 }>({
