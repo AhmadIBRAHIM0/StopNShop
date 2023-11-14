@@ -5,8 +5,9 @@ import CartItem from "../../components/shop/CartItem";
 import {useMemo} from "react";
 import {RootState} from "../../../App";
 import {removeFromCart} from "../../hooks/useCartReducer";
+import {addOrder} from "../../hooks/useOrdersReducer";
 
-type CartItemType = {
+export type CartItemType = {
     productId: string;
     productTitle: string;
     productPrice: number;
@@ -39,7 +40,13 @@ const CartScreen = (props: any) => {
         <View style={styles.screen}>
             <View style={styles.summary}>
                 <Text style={styles.summaryText}>Total: <Text style={styles.amountText}>${cartTotalAmount}</Text></Text>
-                <Button title="Order Now" disabled={cartItems.length === 0}/>
+                <Button
+                    title="Order Now"
+                    disabled={cartItems.length === 0}
+                    onPress={() => {
+                        dispatch(addOrder(cartItems, cartTotalAmount))
+                    }}
+                />
             </View>
             <FlatList
                 data={cartItems}

@@ -7,10 +7,12 @@ import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
 import ProductsNavigator from "./src/navigation/ShopNavigator";
 import cartReducer from "./src/hooks/useCartReducer";
+import {ordersReducer} from "./src/hooks/useOrdersReducer";
 
 const rootReducer = combineReducers({
     products: productsReducer,
     cart: cartReducer,
+    orders: ordersReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
