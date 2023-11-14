@@ -11,7 +11,7 @@ type Props = {
 };
 
 const ProductDetailScreen = (props: Props) => {
-    const {productId, productTitle} = props.route.params;
+    const {productId} = props.route.params;
     const selectedProduct: Product = useSelector((state: RootState) =>
         state.products.availableProducts.find(
             (product: Product) => product.id === productId)
@@ -22,7 +22,8 @@ const ProductDetailScreen = (props: Props) => {
             <Text style={styles.price}>${selectedProduct.price.toFixed(2)}</Text>
             <Text style={styles.description}>{selectedProduct.description}</Text>
             <View style={styles.actions}>
-                <Button color={Colors.primary} title="Add to Cart" onPress={()=>{}}/>
+                <Button color={Colors.primary} title="Add to Cart" onPress={() => {
+                }}/>
             </View>
         </ScrollView>
     );
