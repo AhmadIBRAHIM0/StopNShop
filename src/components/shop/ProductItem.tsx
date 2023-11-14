@@ -6,7 +6,7 @@ import {Colors} from "react-native/Libraries/NewAppScreen";
 type Props = {
     product: Product;
     onViewDetail: () => void;
-    onAddToCart?: () => void;
+    onAddToCart: () => void;
 }
 const ProductItem = ({product, onViewDetail, onAddToCart}: Props): React.JSX.Element => {
 

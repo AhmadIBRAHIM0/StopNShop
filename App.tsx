@@ -6,15 +6,17 @@ import {productsReducer} from './src/hooks/useProductsReducer';
 import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
 import ProductsNavigator from "./src/navigation/ShopNavigator";
+import {cartReducer} from "./src/hooks/userCartReducer";
 
 const rootReducer = combineReducers({
     products: productsReducer,
+    cart: cartReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
 
 const store = configureStore({
-    reducer: rootReducer
+    reducer: rootReducer,
 });
 
 function App(): React.JSX.Element {
