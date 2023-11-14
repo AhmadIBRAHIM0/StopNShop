@@ -13,10 +13,14 @@ export interface CartState {
 
 export type CartAction =
     | { type: 'ADD_TO_CART', product: Product }
-    | { type: 'REMOVE_FROM_CART' } & Partial<Product>
+    | { type: 'REMOVE_FROM_CART', id: string };
 
 export const addToCart = (product: Product) => {
     return {type: 'ADD_TO_CART', product: product};
+}
+
+export const removeFromCart = (id: string) => {
+    return {type: 'REMOVE_FROM_CART', id: id};
 }
 
 export default (
@@ -25,7 +29,6 @@ export default (
 ) => {
     if (action.type === 'ADD_TO_CART') {
         const addedProduct: Product = action.product;
-        console.log('addedProduct', addedProduct);
         const prodPrice: number = addedProduct.price;
         const prodTitle: string = addedProduct.title;
         let updatedOrCreateCartItem: CartItem;
@@ -47,7 +50,28 @@ export default (
         };
     }
 
-    console.log('HHHHHHHHHHHHHHHH', state);
+    if (action.type === 'REMOVE_FROM_CART') {
+        const selectedCartItem: CartItem = state.items[action.id];
+        const currentQty: number = selectedCartItem.quantity;
+        let updatedCartItems: { [key: string]: CartItem };
+        if (currentQty > 1) {
+            const updatedCartItem: CartItem = new CartItem(
+                selectedCartItem.quantity - 1,
+                selectedCartItem.price,
+                selectedCartItem.title,
+                selectedCartItem.sum - selectedCartItem.price
+            );
+            updatedCartItems = {...state.items, [action.id]: updatedCartItem};
+        } else {
+            updatedCartItems = {...state.items};
+            delete updatedCartItems[action.id];
+        }
+        return {
+            ...state,
+            items: updatedCartItems,
+            totalAmount: state.totalAmount - selectedCartItem.price
+        };
+    }
 
     return state;
 }

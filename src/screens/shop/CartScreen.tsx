@@ -1,9 +1,10 @@
 import {Button, FlatList, StyleSheet, Text, View} from "react-native";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import CartItem from "../../components/shop/CartItem";
 import {useMemo} from "react";
 import {RootState} from "../../../App";
+import {removeFromCart} from "../../hooks/useCartReducer";
 
 type CartItemType = {
     productId: string;
@@ -14,7 +15,7 @@ type CartItemType = {
 }
 const CartScreen = (props: any) => {
     const cartState = useSelector((state: RootState) => state.cart.items);
-    console.log("CARTEEE STATEEE", cartState);
+    const dispatch = useDispatch();
     const cartTotalAmount = useSelector((state: RootState) => state.cart.totalAmount);
 
     const cartItems = useMemo(() => {
@@ -29,7 +30,8 @@ const CartScreen = (props: any) => {
             });
         }
 
-        return transformedCartItems;
+        return transformedCartItems.sort((a, b)
+            => a.productId > b.productId ? 1 : -1);
     }, [cartState]);
 
     return (
@@ -46,6 +48,7 @@ const CartScreen = (props: any) => {
                     title={itemData.item.productTitle}
                     amount={itemData.item.sum}
                     onRemove={() => {
+                        dispatch(removeFromCart(itemData.item.productId))
                     }}
                 />}
             />
