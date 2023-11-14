@@ -2,13 +2,13 @@ import Product from "../ models/product";
 import {ProductAction, ProductState} from "../providers/ItemsProvider";
 import PRODUCTS from "../data/dummy-data";
 
-export const initialState: ProductState = {
+export const initialProductState: ProductState = {
     availableProducts: PRODUCTS,
     userProducts: PRODUCTS.filter((product: Product) => product.ownerId === 'u1')
 }
 
 export const productsReducer = (
-    state: ProductState = initialState,
+    state: ProductState = initialProductState,
     action: ProductAction
 ) => {
     if (action.type === 'ADD_PRODUCT') {
