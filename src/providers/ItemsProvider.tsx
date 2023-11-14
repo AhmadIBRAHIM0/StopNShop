@@ -1,6 +1,6 @@
 import React from "react";
 import Product from "../ models/product";
-import {initialState} from "../hooks/useProductsReducer";
+import {initialProductState} from "../hooks/useProductsReducer";
 
 export interface ProductState {
     availableProducts: Product[];
@@ -16,7 +16,7 @@ const ItemContext = React.createContext<{
     state: ProductState;
     dispatch: React.Dispatch<ProductAction>;
 }>({
-    state: initialState,
+    state: initialProductState,
     dispatch: () => {
     }
 });

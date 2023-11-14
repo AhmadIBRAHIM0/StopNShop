@@ -1,14 +1,14 @@
 import React, {ReactNode, useReducer} from "react";
 import ItemsProvider from "./ItemsProvider";
-import {initialState, productsReducer} from "../hooks/useProductsReducer";
+import {initialProductState, productsReducer} from "../hooks/useProductsReducer";
 
 
-interface Props {
+export interface ChildrenProps {
     children: ReactNode;
 }
 
-const ProductsProvider: React.FC<Props> = ({children}: Props) => {
-    const [state, dispatch] = useReducer(productsReducer, initialState);
+const ProductsProvider: React.FC<ChildrenProps> = ({children}: ChildrenProps) => {
+    const [state, dispatch] = useReducer(productsReducer, initialProductState);
     return (
         <ItemsProvider.Provider value={{state, dispatch}}>
             {children}
