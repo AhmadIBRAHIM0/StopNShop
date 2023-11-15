@@ -4,34 +4,34 @@ const PRODUCTS: Product[] = [
     new Product(
         'p1',
         'u1',
-        'Red Shirt',
-        'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
-        'A red t-shirt, perfect for days with non-red weather.',
-        29.99
+        'Gaming RGB Chair',
+        'https://i.ebayimg.com/images/g/iVkAAOSwubRfWh7~/s-l1600.jpg',
+        'A great chair for gaming!',
+        999.99
     ),
     new Product(
         'p2',
         'u1',
-        'Blue Carpet',
-        'https://images.pexels.com/photos/6292/blue-pattern-texture-macro.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-        'Fits your red shirt perfectly. To stand on. Not to wear it.',
-        99.99
+        'Gaming PC',
+        'https://www.memorypc.fr/media/image/33/7c/eb/553663gCDxK7pqF7jWL_600x600.webp',
+        'Fast and furious gaming pc',
+        3999.99
     ),
     new Product(
         'p3',
         'u2',
-        'Coffee Mug',
-        'https://images.pexels.com/photos/160834/coffee-cup-and-saucer-black-coffee-loose-coffee-beans-160834.jpeg?cs=srgb&dl=bean-beans-black-coffee-160834.jpg&fm=jpg',
-        'Can also be used for tea!',
-        8.99
+        'BENGOO Gaming Headset',
+        'https://m.media-amazon.com/images/I/61CGHv6kmWL.jpg',
+        'A great headset for gaming!',
+        139.99
     ),
     new Product(
         'p4',
         'u3',
-        'The Book - Limited Edition',
-        'https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg?cs=srgb&dl=blur-blurred-book-pages-46274.jpg&fm=jpg',
-        "What the content is? Why would that matter? It's a limited edition!",
-        15.99
+        'LG UltraGear 45” OLED Curved Monitor',
+        'https://www.lg.com/fr/images/moniteurs/md07568248/gallery/lg-tv-45GR95QE-B-small03.jpg',
+        "LG - UltraGear 45” OLED Curved WQHD 240Hz 0.03ms FreeSync and NVIDIA G-Sync Compatible Gaming Monitor with HDR10 - Black",
+        1799.99
     ),
     new Product(
         'p5',
@@ -44,10 +44,10 @@ const PRODUCTS: Product[] = [
     new Product(
         'p6',
         'u1',
-        'Pen & Paper',
-        'https://cdn.pixabay.com/photo/2015/10/03/02/14/pen-969298_1280.jpg',
-        "Can be used for role-playing (not the kind of role-playing you're thinking about...).",
-        5.49
+        'Mini Electric Oven',
+        'https://media.conforama.fr/m/export/Medias/700000/10000/9000/700/10/G_719710_A.jpg',
+        "A great oven for baking cakes, pies and even pizza!",
+        159.49
     )
 ];
 
