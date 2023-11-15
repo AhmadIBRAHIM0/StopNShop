@@ -1,5 +1,6 @@
 import {CartItemType} from "../screens/shop/CartScreen";
 import CartItem from "./cart-item";
+import moment from 'moment';
 
 export default class Order {
     constructor(
@@ -8,5 +9,9 @@ export default class Order {
         public amount: number,
         public date: Date
     ) {
+    }
+
+    get readableDate() {
+        return moment(this.date).format('MMMM Do YYYY, hh:mm');
     }
 }

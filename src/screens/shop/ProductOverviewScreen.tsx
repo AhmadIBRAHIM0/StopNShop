@@ -42,7 +42,10 @@ ProductOverviewScreen.navigationOptions = (navData: any) => {
         headerTitle: 'All Products',
         headerRight: () => (
             navData.navigation.navigate('Cart')
-        )
+        ),
+        headerLeft: () => (
+            navData.navigation.toggleDrawer()
+        ),
     }
 }
 

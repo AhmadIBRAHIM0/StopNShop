@@ -13,7 +13,8 @@ export interface CartState {
 
 export type CartAction =
     | { type: 'ADD_TO_CART', product: Product }
-    | { type: 'REMOVE_FROM_CART', id: string };
+    | { type: 'REMOVE_FROM_CART', id: string }
+    | { type: 'ADD_ORDER' };
 
 export const addToCart = (product: Product) => {
     return {type: 'ADD_TO_CART', product: product};
@@ -71,6 +72,10 @@ export default (
             items: updatedCartItems,
             totalAmount: state.totalAmount - selectedCartItem.price
         };
+    }
+
+    if (action.type === 'ADD_ORDER') {
+        return initialCartState;
     }
 
     return state;

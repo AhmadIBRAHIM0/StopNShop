@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer} from "@react-navigation/native";
 import ProductsProvider from "./src/providers/ProductsProvider";
@@ -5,7 +6,7 @@ import {combineReducers} from 'redux';
 import {productsReducer} from './src/hooks/useProductsReducer';
 import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
-import ProductsNavigator from "./src/navigation/ShopNavigator";
+import ShopNavigator from "./src/navigation/ShopNavigator";
 import cartReducer from "./src/hooks/useCartReducer";
 import {ordersReducer} from "./src/hooks/useOrdersReducer";
 
@@ -31,7 +32,7 @@ function App(): React.JSX.Element {
         <NavigationContainer>
             <Provider store={store}>
                 <ProductsProvider>
-                    <ProductsNavigator/>
+                    <ShopNavigator/>
                 </ProductsProvider>
             </Provider>
         </NavigationContainer>
